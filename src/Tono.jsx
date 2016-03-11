@@ -1,11 +1,12 @@
 import React from 'react'
 import { MorseMap } from './MorseMap'
+/*eslint-disable no-unused-vars*/
 import css from './sass/style.scss'
+/*eslint-enable no-unused-vars*/
 import FastClick from 'fastclick'
 
 
 const DIT_DURATION = 200
-const DAH_DURATION = DIT_DURATION * 3
 
 export const MorseGuide = React.createClass ({
   toDahDit: function(item){
@@ -54,8 +55,8 @@ export const Tono = React.createClass({
     }
   },
   componentDidMount: function(){
-    FastClick.attach(document.body);
-    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    FastClick.attach(document.body)
+    let audioCtx = new (window.AudioContext || window.webkitAudioContext)()
     let oscillator = audioCtx.createOscillator()
 
     oscillator.type = 'sine'
@@ -64,15 +65,15 @@ export const Tono = React.createClass({
 
     this.oscillator = oscillator
     this.audioContext = audioCtx
-    this.lastToneStarted = 0;
+    this.lastToneStarted = 0
 
-    this.keyTimer = null;
+    this.keyTimer = null
   },
-  didKeyDown: function(evt){
+  didKeyDown: function(){
     this.setState({
-      makingTone: true,
+      makingTone: true
     })
-    this.lastToneStarted = new Date();
+    this.lastToneStarted = new Date()
     this.oscillator.connect(this.audioContext.destination)
     clearTimeout(this.keyResolveTimer)
   },
@@ -121,6 +122,6 @@ export const Tono = React.createClass({
         <p>{this.state.message}</p>
         <MorseGuide />
       </div>
-    );
+    )
   }
-});
+})

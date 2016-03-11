@@ -4,8 +4,9 @@
   "description": "Learn and communicate morse code over WebSocket or WebRTC",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"muahaha\"",
+    "test": "node test/tests.js",
     "start": "webpack-dev-server --host 0.0.0.0 --content-base public/ --hot",
+    "lint": "eslint src/*.js src/*.jsx",
     "build": "webpack --progress -p"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "tape": "^4.5.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
   },
